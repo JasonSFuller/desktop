@@ -1,0 +1,98 @@
+/*
+
+mkdir ~/Library/KeyBindings
+vim   ~/Library/KeyBindings/DefaultKeyBinding.Dict
+
+-- Readme ----------------------------------------------------------------------
+
+These key bindings and tips will apply Windows and Linux -style cursor control 
+and cut/copy/paste shortcuts to MacOS, without messing up the key bindings in
+other applications, e.g. locally hosted Linux VMs, where you still need <ctrl>+C
+to be sent to the terminal to cancel a running command (and NOT to be
+intercepted by the OS to "copy").
+
+I prefer <ctrl> instead of <cmd> because it's built into my muscle memory, but
+if you don't, either swap @ and ^ in this file (the recommended method), or swap
+Control and Command in:
+
+    Apple -> System Preferences -> Keyboard -> Modifier Keys...
+
+If you go this route, you may also want to "Select Keyboard" and only change the
+key bindings for a specific keyboard (e.g. an external one) vs. changing the
+internal keyboard, which you'll probably want to leave unaltered.
+
+To unbind shortcuts, simply assign an empty string ("") in this file.
+
+For <ctrl>+<left> (or <right>) to work, you must disable the default Mission 
+Control shortcuts (also under "Modifier Keys," mentioned above).
+
+If you have an old 102-style Model-M (missing a <win>/<super>/<cmd> key), I also
+remap <caps_lock> to <cmd> on my external keyboard (also under "Modifier Keys").
+
+For <shift>+<ins> to work in iTerm2:
+
+    Preferences -> Keys -> Key Mappings -> +
+      Set "<shift>+<ins>" to "paste"
+
+
+-- Key Modifiers -----------------------
+^ : Ctrl
+$ : Shift
+~ : Option (<alt>)
+@ : Command (Apple, or <win>/<super> on external keyboards)
+# : Numeric Keypad
+
+-- Standard ----------------------------
+Up Arrow:     \UF700        Backspace:    \U0008        F1:           \UF704
+Down Arrow:   \UF701        Tab:          \U0009        F2:           \UF705
+Left Arrow:   \UF702        Escape:       \U001B        F3:           \UF706
+Right Arrow:  \UF703        Enter:        \U000A        ...
+Insert:       \UF727        Page Up:      \UF72C
+Delete:       \UF728        Page Down:    \UF72D
+Home:         \UF729        Print Screen: \UF72E
+End:          \UF72B        Scroll Lock:  \UF72F
+Break:        \UF732        Pause:        \UF730
+SysReq:       \UF731        Menu:         \UF735
+Help:         \UF746
+
+-- OS X --------------------------------
+delete:       \U007F
+
+
+-- Shortcuts ---------------------------------------------------------------- */
+
+{
+  "^\UF702"  = "moveWordBackward:";                             /* Cmd + Left          */
+  "^\UF703"  = "moveWordForward:";                              /* Cmd + Right         */
+  "^$\UF702" = "moveWordBackwardAndModifySelection:";           /* Cmd + Shift + Right */
+  "^$\UF703" = "moveWordForwardAndModifySelection:";            /* Cmd + Shift + Right */
+  "^\U007F"  = "deleteWordBackward:";                           /* Cmd + Backspace     */
+  "^\UF728"  = "deleteWordForward:";                            /* Cmd + Delete        */
+
+  "$\UF728"  = "cut:";                                          /* Shift + Del         */
+  "$\UF727"  = "paste:";                                        /* Shift + Ins         */
+  "^x"       = "cut:";                                          /* Cmd + X             */
+  "^c"       = "copy:";                                         /* Cmd + C             */
+  "^v"       = "paste:";                                        /* Cmd + V             */
+
+  "\UF729"   = "moveToBeginningOfLine:";                        /* Home                */
+  "\UF72B"   = "moveToEndOfLine:";                              /* End                 */
+  "$\UF729"  = "moveToBeginningOfLineAndModifySelection:";      /* Shift + Home        */
+  "$\UF72B"  = "moveToEndOfLineAndModifySelection:";            /* Shift + End         */
+  "^\UF729"  = "moveToBeginningOfDocument:";                    /* Cmd + Home          */
+  "^\UF72B"  = "moveToEndOfDocument:";                          /* Cmd + End           */
+  "$^\UF729" = "moveToBeginningOfDocumentAndModifySelection:";  /* Shift + Cmd + Home  */
+  "$^\UF72B" = "moveToEndOfDocumentAndModifySelection:";        /* Shift + Cmd + End   */
+}
+/*
+
+-- Sources ---------------------------------------------------------------------
+
+Original:            https://gist.github.com/ataiya/b05f543e61bce8029d18ff4f8a419caa
+Which was based on:  https://gist.github.com/trusktr/1e5e516df4e8032cbc3d
+System file:         /System/Library/Frameworks/AppKit.framework/Resources/StandardKeyBinding.dict
+Official info:       https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/EventOverview/TextDefaultsBindings/TextDefaultsBindings.html
+Complex example:     https://github.com/ttscoff/KeyBindings/blob/master/DefaultKeyBinding.dict
+Good reference:      http://osxnotes.net/keybindings.html
+
+*/
