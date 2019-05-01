@@ -74,6 +74,10 @@ delete:       \U007F
   "^x"       = "cut:";                                          /* Cmd + X             */
   "^c"       = "copy:";                                         /* Cmd + C             */
   "^v"       = "paste:";                                        /* Cmd + V             */
+  "^a"       = "selectAll:";                                    /* Cmd + A             */
+  "^o"       = "openDocument:";                                 /* Cmd + O             */
+  "^s"       = "saveDocument:";                                 /* Cmd + S             */
+  "^n"       = "newDocument:";                                  /* Cmd + N             */
 
   "\UF729"   = "moveToBeginningOfLine:";                        /* Home                */
   "\UF72B"   = "moveToEndOfLine:";                              /* End                 */
