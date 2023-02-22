@@ -37,9 +37,6 @@ if ! userdel --remove jfuller; then
   exit 1
 fi
 
-if ! groupdel jfuller; then
-  echo "ERROR: could not remote group 'jfuller'" >&2
-  exit 1
-fi
+groupdel jfuller >/dev/null 2>&1
 
 echo "INFO: removed user 'jfuller'"
