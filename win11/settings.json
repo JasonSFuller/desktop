@@ -1,0 +1,410 @@
+// PS C:\Users\Jason> date; code --list-extensions --show-versions
+
+// Tuesday, July 18, 2023 9:40:48 AM
+// almenon.arepl@2.0.5
+// bierner.emojisense@0.10.0
+// bierner.github-markdown-preview@0.3.0
+// bierner.markdown-checkbox@0.4.0
+// bierner.markdown-emoji@0.3.0
+// bierner.markdown-footnotes@0.1.1
+// bierner.markdown-mermaid@1.19.0
+// bierner.markdown-preview-github-styles@2.0.2
+// bierner.markdown-yaml-preamble@0.1.0
+// christian-kohler.path-intellisense@2.8.4
+// DavidAnson.vscode-markdownlint@0.51.0
+// esbenp.prettier-vscode@9.19.0
+// formulahendry.auto-close-tag@0.5.14
+// formulahendry.auto-rename-tag@0.1.10
+// GitHub.remotehub@0.60.0
+// GitHub.vscode-pull-request-github@0.68.1
+// glenn2223.live-sass@6.0.5
+// hashicorp.hcl@0.3.2
+// hashicorp.terraform@2.27.0
+// mhutchie.git-graph@1.30.0
+// mikestead.dotenv@1.0.1
+// ms-azuretools.vscode-docker@1.26.0
+// ms-kubernetes-tools.vscode-kubernetes-tools@1.3.13
+// ms-python.isort@2023.10.1
+// ms-python.python@2023.12.0
+// ms-python.vscode-pylance@2023.7.20
+// ms-toolsai.jupyter@2023.6.1101941928
+// ms-toolsai.jupyter-keymap@1.1.2
+// ms-toolsai.jupyter-renderers@1.0.17
+// ms-toolsai.vscode-jupyter-cell-tags@0.1.8
+// ms-toolsai.vscode-jupyter-slideshow@0.1.5
+// ms-vscode-remote.remote-containers@0.299.0
+// ms-vscode-remote.remote-ssh@0.102.0
+// ms-vscode-remote.remote-ssh-edit@0.86.0
+// ms-vscode-remote.remote-wsl@0.80.2
+// ms-vscode-remote.vscode-remote-extensionpack@0.24.0
+// ms-vscode.azure-repos@0.36.0
+// ms-vscode.hexeditor@1.9.11
+// ms-vscode.live-server@0.4.9
+// ms-vscode.powershell@2023.6.0
+// ms-vscode.remote-explorer@0.4.1
+// ms-vscode.remote-repositories@0.38.1
+// ms-vscode.remote-server@1.3.0
+// ms-vscode.sublime-keybindings@4.0.10
+// PKief.material-icon-theme@4.29.0
+// redhat.ansible@2.4.78
+// redhat.vscode-yaml@1.13.0
+// ritwickdey.LiveServer@5.7.9
+// rogalmic.bash-debug@0.3.9
+// stkb.rewrap@1.16.3
+// streetsidesoftware.code-spell-checker@2.20.5
+// timonwong.shellcheck@0.33.0
+// usernamehw.errorlens@3.12.0
+// wayou.vscode-todo-highlight@1.0.5
+
+{
+    // Don't show me the welcome page if the previous editor session was empty.
+    "workbench.startupEditor": "none",
+
+    // Pretty!
+    "editor.fontFamily": "'Source Code Pro', 'Droid Sans Mono', monospace, 'Droid Sans Fallback'",
+    "editor.fontSize": 16,
+    "editor.lineHeight": 1.6,
+    "editor.rulers": [
+        {
+            "column": 80,
+            "color": "#282828"
+        },
+        {
+            "column": 100,
+            "color": "#282828"
+        },
+        {
+            "column": 120,
+            "color": "#282828"
+        },
+    ],
+    "workbench.iconTheme": "material-icon-theme",
+    "material-icon-theme.saturation": 0.6,
+    "editor.cursorBlinking": "phase",
+    "editor.cursorSurroundingLines": 10,
+    "editor.renderLineHighlight": "all",
+
+    // We don't need to use an extra plugin; it's built in now.
+    "editor.bracketPairColorization.enabled": true,
+
+    // Don't autocomplete on <enter> (clicking out with mouse?... pffft, NO.)
+    "editor.acceptSuggestionOnEnter": "off",
+
+    // https://github.com/DavidAnson/markdownlint/blob/main/doc/md012.md
+    // "Rationale: Except in a code block, blank lines serve no purpose and do
+    // not affect the rendering of content." 
+    //
+    // Uh, yeah bruh, but I don't always *read* "rendered content."  Plaintext
+    // and whitespace FTW, sooo... don't complain until there are more than 3
+    // empty lines.
+    //
+    // https://github.com/DavidAnson/markdownlint/blob/main/doc/md028.md
+    // "Rationale: Some Markdown parsers will treat two blockquotes separated by
+    // one or more blank lines as the same blockquote, while others will treat
+    // them as separate blockquotes."
+    //
+    // I only use git providers who render this correctly.
+    //
+    // https://github.com/DavidAnson/markdownlint/blob/main/doc/md033.md
+    // "Rationale: Raw HTML is allowed in Markdown, but this rule is included
+    // for those who want their documents to only include "pure" Markdown, or
+    // for those who are rendering Markdown documents into something other than
+    // HTML."
+    //
+    // GFM allows you to organize info with collapsible sections (which I prefer
+    // when example or log output is needed), and this "folding" uses HTML tags.
+    "markdownlint.config": {
+        "MD012": { "maximum": 3 },
+        "MD028": false,
+        "MD033": false
+    },
+
+    // Ignore Markdown errors on the current line and X lines above/below.
+    "markdownlint.focusMode": 1,
+
+    // Why do you auto-detect plaintext config files as Markdown?  So annoying!
+    "workbench.editor.languageDetection": false,
+
+    // Don't show git author info at the top and above headers; it's annoying.
+    "gitlens.codeLens.enabled": false,
+
+    // Spell my cursing correctly.
+    "cSpell.userWords": [
+        "agetty",
+        "APPROLE",
+        "arithmatex",
+        "arpa",
+        "assumeyes",
+        "auditd",
+        "authpassphrase",
+        "autohide",
+        "avahi",
+        "azcollection",
+        "azureapp",
+        "azurecr",
+        "betterem",
+        "bjorked",
+        "bruh",
+        "chmod",
+        "chrony",
+        "coredns",
+        "Corefile",
+        "coreutils",
+        "cpus",
+        "creds",
+        "cygwin",
+        "dawg",
+        "devnet",
+        "devs",
+        "dhcpd",
+        "distro",
+        "distro's",
+        "distros",
+        "dnssec",
+        "dockerconfigjson",
+        "dotfiles",
+        "dotfilesdir",
+        "edns",
+        "figlet",
+        "firewalld",
+        "graphicscontroller",
+        "gsettings",
+        "hashicorp",
+        "HISTCONTROL",
+        "histtimeformat",
+        "homelab",
+        "hostvar",
+        "hostvars",
+        "hushlogin",
+        "idempotency",
+        "ignoreboth",
+        "IHEALTH",
+        "inputrc",
+        "inspectable",
+        "ipaddr",
+        "ipaddress",
+        "ipath",
+        "jasonfu",
+        "jfuller",
+        "journalctl",
+        "junos",
+        "keepalived",
+        "keygen",
+        "keyscan",
+        "keyvault",
+        "kubectl",
+        "ldap",
+        "linecard",
+        "lineinfile",
+        "linenums",
+        "LOCALBACK",
+        "localectl",
+        "lookaheads",
+        "maxresults",
+        "mdns",
+        "meraki",
+        "mgmt",
+        "minikube",
+        "mkdir",
+        "mkdocs",
+        "modifyvm",
+        "motd",
+        "mountpoint",
+        "netcommon",
+        "nmcli",
+        "nodename",
+        "noninteractive",
+        "NOPASSWD",
+        "noqa",
+        "nullglob",
+        "Palo",
+        "pamd",
+        "panos",
+        "passwordstate",
+        "pffft",
+        "pissy",
+        "podman",
+        "PREPROD",
+        "privpassphrase",
+        "pymdownx",
+        "pytest",
+        "qkview",
+        "restorecon",
+        "rpms",
+        "scrollback",
+        "selinux",
+        "setaf",
+        "showcerts",
+        "skel",
+        "smartsymbols",
+        "snmp",
+        "SNTC",
+        "sooo",
+        "sshfs",
+        "sshpass",
+        "sssd",
+        "superfences",
+        "superproject",
+        "tasklist",
+        "tempfile",
+        "terminfo",
+        "toplevel",
+        "ungreedy",
+        "urlencode",
+        "userspace",
+        "venv",
+        "vimrc",
+        "virtualenv",
+        "vmsvga",
+        "wholename",
+        "xfer",
+        "xforwarded",
+        "xorg",
+        "xtrace"
+    ],
+
+    // Smooth all the things.
+    "editor.smoothScrolling": true,
+    "editor.cursorSmoothCaretAnimation": "on",
+    "workbench.list.smoothScrolling": true,
+
+    // Don't track me, bro.
+    "telemetry.telemetryLevel": "off",
+    "redhat.telemetry.enabled": false,
+
+    // Miscellaneous plugin settings.
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+
+    // Don't bomb on inline encrypted ansible vars
+    "yaml.customTags": [
+        "!encrypted/pkcs1-oaep scalar",
+        "!vault scalar"
+    ],
+
+    // Default passphrase for Ansible vault encrypted files
+    "ansibleVaultInline.keyfile": "/home/jfuller/.ansible/vault",
+    
+    // Doesn't work right + annoying
+    "markdown.preview.scrollEditorWithPreview": false,
+    
+    // Python things
+    "python.testing.pytestEnabled": true,
+    "python.terminal.executeInFileDir": true,
+    
+    // Don't bug me; do the thing!
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    
+    // Because... terminals
+    "rewrap.wrappingColumn": 80,
+
+    // ...but my systems, yo!
+    "remote.SSH.remotePlatform": {
+        "nuc10": "linux",
+        "drone": "linux",
+        "35.209.92.204": "linux",
+        "lab2.home": "linux",
+        "lab1.home": "linux",
+        "lab3.home": "linux"
+    },
+
+    // Fix git annoyances.
+    "git.ignoreMissingGitWarning": true,
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "gitlens.advanced.messages": {
+        "suppressGitMissingWarning": true
+    },
+
+    // These dirs get VERY large, cause issues, and we don't care about them.
+    "search.exclude": {
+        "**/.vscode-server/**": true,
+        "**/.git/**": true,
+        "**/venv/**": true,
+        "**/.venv/**": true
+    },
+    "files.watcherExclude": {
+        "**/.vscode-server/**": true,
+        "**/.git/**": true,
+        "**/venv/**": true,
+        "**/.venv/**": true
+    },
+
+    // Always add a _single_ newline to the end of files.
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+
+    // Use the correct pretty printer.
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+
+    // Hex editor settings (This plugin is fairly rudimentary at the moment.)
+    "hexeditor.columnWidth": 16,
+    "hexeditor.showDecodedText": true,
+    "hexeditor.defaultEndianness": "little",
+    "hexeditor.inspectorType": "aside",
+    "hexeditor.showOpenFileButton": true,
+
+    // I want spell check all over the place.
+    "cSpell.enableFiletypes": [
+        "ruby",
+        "shellscript"
+    ],
+
+    // A convenient place to put the command palette, now that there's more
+    // space around it (for dragging the window around, it was quite annoying
+    // without it)
+    "window.commandCenter": true,
+
+    // Be sure to highlight weird characters in a file.
+    "editor.unicodeHighlight.nonBasicASCII": true,
+
+    // Treat all yaml files as Ansible files.
+    "files.associations": {
+        "*.yaml": "ansible",
+        "*.yml": "ansible"
+    },
+
+    // Don't keep a billion tabs open at once.
+    "workbench.editor.limit.enabled": true,
+    "workbench.editor.limit.value": 7,
+
+    // Enables link validation (local and otherwise) in your markdown.
+    "markdown.validate.enabled": true,
+
+    // Use the new diff algorithm for better diff highlighting.
+    "diffEditor.diffAlgorithm": "advanced",
+
+    // Highlight TODO, FIXME, etc in certain files
+    // NOTE:  Docs explicitly call out to _NOT_ use "**/*.*"
+    // https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight
+    "todohighlight.include": [
+        "**/*.js",
+        "**/*.jsx",
+        "**/*.ts",
+        "**/*.tsx",
+        "**/*.html",
+        "**/*.php",
+        "**/*.css",
+        "**/*.scss",
+        "**/*.txt",
+        "**/*.md",
+        "**/*.yaml",
+        "**/*.yml",
+        "**/*.sh",
+        "**/*.bash"
+    ],
+
+    // Settings I haven't sorted yet. //////////////////////////////////////////
+    "[css]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    }
+    
+}
+
