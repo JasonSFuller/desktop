@@ -127,6 +127,7 @@ apt-get install -y \
   libffi-dev \
   python3-dev \
   jq \
+  shellcheck \
   docker-ce \
   docker-ce-cli \
   containerd.io \
