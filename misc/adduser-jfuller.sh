@@ -32,15 +32,15 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDL4z+O9D01QkS30DZU+CgfPYS1SgMtRmSXRPW1c0rT
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCeOce/s3zIJgFcwuI5kfwQo1DIvEDl39/NgO4ruRO/PrFWwZ8wX3naWikCTHA+OxJ8MFoV5sunzwcTBJNz6qJ1rU3HH0oYwlBI2OeWUMWnxJ8TExdor0ctDo232MwXKmnQskuRoCeojQh8dRNfHVD/yxGtA02iVyDEOOylCvUNvfvqR4rkvTN+urZNk2fUXqBHb6SOLT97mfNsMqd+D+0uNEDLku0GsJrUx4hbAtF8JQCw59xuqRfo0zcpBmZw5mw9Csg5h1IN8L/4lVQN/gkFkdobv/cvlDkcuRigAJhKMX5zJAfWTzzZ4tfS8T6yArJXhhKyqkOSCDg3ekcgTq0j
 EOF
 
+if builtin command -v restorecon &>/dev/null; then
+  restorecon -R ~jfuller/.ssh/
+fi
+
 if builtin command -v md5sum &>/dev/null; then
   if md5sum ~jfuller/.ssh/authorized_keys | grep -qF 496bcb41fbc271258867b424f1fdee55; then
     echo "INFO: authorized_keys md5 checksum ok"
   else
-	echo "ERROR: authorized_keys md5 checksum failed"
-	exit 1
+    echo "ERROR: authorized_keys md5 checksum failed"
+    exit 1
   fi
-fi
-
-if builtin command -v restorecon &>/dev/null; then
-  restorecon -R ~jfuller/.ssh/
 fi

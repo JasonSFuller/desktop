@@ -19,7 +19,7 @@ function pre_flight_checks {
   export DEBIAN_FRONTEND="noninteractive"
 }
 
-function install_from_url {
+function install_deb_from_url {
   local url="$1"
   local base="$2"
   if [[ -z "$base" ]]; then base=$(basename "$url"); fi
@@ -82,21 +82,21 @@ function install_source_code_pro_font {
 
 pre_flight_checks
 
-# for installing vagrant and packer (later via apt)
+# for vagrant and packer (installed later via apt)
 install_hashicorp_repo
 
-# for install docker (later via apt)
+# for docker (installed later via apt)
 install_docker_repo
 
-# for install tailscale (later via apt)
+# for tailscale (installed later via apt)
 install_tailscale_repo
 
 # install delta
-install_from_url \
+install_deb_from_url \
   'https://github.com/dandavison/delta/releases/download/0.16.5/git-delta-musl_0.16.5_amd64.deb'
 
 # install vscode
-install_from_url \
+install_deb_from_url \
   'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64' \
   'code.deb'
 
@@ -134,4 +134,3 @@ apt-get install -y \
   docker-buildx-plugin \
   docker-compose-plugin \
   tailscale
-
