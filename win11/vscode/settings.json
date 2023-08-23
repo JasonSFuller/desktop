@@ -18,7 +18,7 @@
         {
             "column": 120,
             "color": "#282828"
-        },
+        }
     ],
     "workbench.iconTheme": "material-icon-theme",
     "material-icon-theme.saturation": 0.6,
@@ -246,7 +246,6 @@
     "remote.SSH.remotePlatform": {
         "nuc10": "linux",
         "drone": "linux",
-        "35.209.92.204": "linux",
         "lab2.home": "linux",
         "lab1.home": "linux",
         "lab3.home": "linux"
@@ -346,7 +345,12 @@
     // Settings I haven't sorted yet. //////////////////////////////////////////
     "[css]": {
         "editor.defaultFormatter": "vscode.css-language-features"
-    }
-    
+    },
+    "ansible.lightspeed.enabled": true,
+    "ansible.lightspeed.suggestions.enabled": true,
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.rightClickBehavior": "paste",
+    "terminal.integrated.scrollback": 100000,
+    "terminal.integrated.shellIntegration.history": 1000
 }
-
