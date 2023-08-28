@@ -1,3 +1,4 @@
+// https://github.com/JasonSFuller/desktop/blob/master/win11/vscode/settings.json
 {
     // Don't show me the welcome page if the previous editor session was empty.
     "workbench.startupEditor": "none",
@@ -246,8 +247,8 @@
     "remote.SSH.remotePlatform": {
         "nuc10": "linux",
         "drone": "linux",
-        "lab2.home": "linux",
         "lab1.home": "linux",
+        "lab2.home": "linux",
         "lab3.home": "linux"
     },
 
