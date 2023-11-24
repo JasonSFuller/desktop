@@ -51,8 +51,9 @@ function install_docker_repo {
     | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
   chmod 0644 /etc/apt/keyrings/docker.gpg
   (
+    # shellcheck source=/dev/null
     source /etc/os-release
-    local arch=$(dpkg --print-architecture)
+    local arch; arch=$(dpkg --print-architecture)
     echo "deb [arch=$arch signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $VERSION_CODENAME stable" \
       > /etc/apt/sources.list.d/docker.list
   )
@@ -66,17 +67,6 @@ function install_tailscale_repo {
     > /etc/apt/sources.list.d/tailscale.list
 }
 
-# https://github.com/adobe-fonts/source-code-pro/releases
-function install_source_code_pro_font {
-  local url='https://github.com/adobe-fonts/source-code-pro/releases/download/2.042R-u%2F1.062R-i%2F1.026R-vf/TTF-source-code-pro-2.042R-u_1.062R-i.zip'
-  local tmp=$(mktemp -d)
-  pushd "$tmp" &>/dev/null
-  curl -sSL "$url" -o source-code-pro.zip
-  unzip source-code-pro.zip
-  install -m 0644 ./TTF/*.ttf /usr/local/share/fonts/
-  fc-cache -f
-  popd &>/dev/null
-}
 
 ##### main #####################################################################
 
@@ -100,9 +90,6 @@ install_deb_from_url \
   'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64' \
   'code.deb'
 
-# install the source code pro font
-install_source_code_pro_font
-
 # update repos
 apt-get update
 
@@ -117,8 +104,6 @@ apt-get install -y \
   vagrant \
   packer \
   sshfs \
-  fonts-firacode \
-  fonts-inconsolata \
   python3 \
   python3-pip \
   python3-venv \
