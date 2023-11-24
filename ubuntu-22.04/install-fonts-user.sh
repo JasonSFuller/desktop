@@ -17,11 +17,11 @@ do
   ((i++))
   curl -sSL "$url" -o "font-$i.zip"
   unzip "font-$i.zip"
+  find . -iname '*.ttf' -exec install -m 0644 {} "$HOME/.fonts" \;
 done
 
 popd || error "popd '$tmp' failed"
 
-find . -iname '*.ttf' -exec install -m 0644 {} "$HOME/.fonts" \;
 fc-cache -v -f;
 
 sudo apt-get install -y fonts-firacode fonts-inconsolata
