@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # PURPOSE:  For VMs in a homelab, it usually doesn't make sense to have a
-#   screensaver or the screen locking (annoying), so disable them.  This change
-#   effects only the currently logged in user (w/ a Gnome session) and will take
-#   effect after they've logged out/in again:
+#   screensaver or screen locking enabled (it's annoying), so disable them.
+#   This change effects only the currently logged in user (w/ a Gnome session)
+#   and will take effect after they've logged out/in:
 #
 # IMPORTANT:  User MUST be logged from GUI (so you have context).
 

@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # PURPOSE:  For VMs in a homelab, it usually doesn't make sense to have a
-#   screensaver or the screen locking (annoying), so disable them.  This change
-#   effects all users after they log out/in.  
+#   screensaver or screen locking enabled (it's annoying), so disable them. 
+#   This change effects all users after they log out/in.
 #
 # Adapted from:
 #   https://help.gnome.org/admin/system-admin-guide/stable/desktop-lockscreen.html.en
