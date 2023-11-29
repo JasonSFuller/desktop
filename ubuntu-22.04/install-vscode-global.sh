@@ -6,12 +6,14 @@ file='/tmp/code.deb'
 function cleanup { rm -rf "$file"; }
 trap cleanup EXIT INT TERM
 
-curl -sSL "$url" -o "$file"
-
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
   curl \
   vim \
-  git \
+  git
+
+curl -sSL "$url" -o "$file"
+
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
   "$file" 
 
 rm -f "$file"
