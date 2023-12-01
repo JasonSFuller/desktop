@@ -20,8 +20,8 @@ else
 fi
 
 if [[ -d ~jfuller && ! -f ~jfuller/.ssh/authorized_keys ]]; then
-  install -m 0755 -d ~jfuller/.ssh
-  install -m 0640 \
+  install -o jfuller -g jfuller -m 0755 -d ~jfuller/.ssh
+  install -o jfuller -g jfuller -m 0640 \
     <(curl -fsL https://github.com/jasonsfuller.keys) \
     ~jfuller/.ssh/authorized_keys  
 fi
