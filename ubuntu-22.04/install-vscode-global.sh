@@ -9,7 +9,8 @@ trap cleanup EXIT INT TERM
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
   curl \
   vim \
-  git
+  git \
+  shellcheck
 
 curl -sSL "$url" -o "$file"
 
