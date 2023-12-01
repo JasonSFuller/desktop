@@ -1,5 +1,19 @@
 #!/bin/bash
 
+# Writing smaller scripts to break this up.
+#
+# Still TODO:
+# - Vagrant (and other hashi tools)
+# - Virtualbox
+# - Docker
+# - Tailscale
+
+# shellcheck disable=SC2317
+echo "DEPRECATED, aborting" >&2
+exit 1
+
+################################################################################
+
 function info  { echo "[${color[blu_b]}INFO${color[reset]}]:  ${color[blu]}$*${color[reset]}"; }
 function warn  { echo "[${color[yel_b]}WARN${color[reset]}]:  ${color[yel]}$*${color[reset]}" >&2; }
 function error { echo "[${color[red_b]}ERROR${color[reset]}]: ${color[red]}$*${color[reset]}" >&2; exit 1; }
@@ -81,38 +95,17 @@ install_docker_repo
 # for tailscale (installed later via apt)
 install_tailscale_repo
 
-# install delta
-install_deb_from_url \
-  'https://github.com/dandavison/delta/releases/download/0.16.5/git-delta-musl_0.16.5_amd64.deb'
-
-# install vscode
-install_deb_from_url \
-  'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64' \
-  'code.deb'
 
 # update repos
 apt-get update
 
 # install my preferred dev tools
 apt-get install -y \
-  git \
-  vim \
-  bat \
-  neofetch \
-  net-tools \
   virtualbox \
   vagrant \
   packer \
-  sshfs \
-  python3 \
-  python3-pip \
-  python3-venv \
-  build-essential \
   libssl-dev \
   libffi-dev \
-  python3-dev \
-  jq \
-  shellcheck \
   docker-ce \
   docker-ce-cli \
   containerd.io \
