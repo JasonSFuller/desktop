@@ -68,9 +68,6 @@
     // Why do you auto-detect plaintext config files as Markdown?  So annoying!
     "workbench.editor.languageDetection": false,
 
-    // Don't show git author info at the top and above headers; it's annoying.
-    "gitlens.codeLens.enabled": false,
-
     // Spell my cursing correctly.
     "cSpell.userWords": [
         "agetty",
@@ -256,9 +253,6 @@
     "git.ignoreMissingGitWarning": true,
     "git.autofetch": true,
     "git.confirmSync": false,
-    "gitlens.advanced.messages": {
-        "suppressGitMissingWarning": true
-    },
 
     // These dirs get VERY large, cause issues, and we don't care about them.
     "search.exclude": {
@@ -283,6 +277,9 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[yaml]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
 
@@ -323,7 +320,7 @@
     // Use the new diff algorithm for better diff highlighting.
     "diffEditor.diffAlgorithm": "advanced",
 
-    // Highlight TODO, FIXME, etc in certain files
+    // Highlight TODO:, FIXME:, etc in certain files
     // NOTE:  Docs explicitly call out to _NOT_ use "**/*.*"
     // https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight
     "todohighlight.include": [
@@ -347,11 +344,11 @@
     "[css]": {
         "editor.defaultFormatter": "vscode.css-language-features"
     },
-    "ansible.lightspeed.enabled": true,
-    "ansible.lightspeed.suggestions.enabled": true,
     "terminal.integrated.copyOnSelection": true,
-    "terminal.integrated.cursorBlinking": true,
     "terminal.integrated.rightClickBehavior": "paste",
     "terminal.integrated.scrollback": 100000,
-    "terminal.integrated.shellIntegration.history": 1000
+    "terminal.integrated.shellIntegration.history": 1000,
+    "dev.containers.dockerPath": "podman",
+    "dev.containers.executeInWSL": true,
+    "dev.containers.executeInWSLDistro": "podman-machine-default"
 }
