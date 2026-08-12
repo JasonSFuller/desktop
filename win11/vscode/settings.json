@@ -4,22 +4,14 @@
     "workbench.startupEditor": "none",
 
     // Pretty!
-    "editor.fontFamily": "'Source Code Pro', 'Droid Sans Mono', monospace, 'Droid Sans Fallback'",
+    "editor.fontFamily": "'SauceCodePro Nerd Font', 'Sauce Code Pro', 'Source Code Pro', monospace, 'Droid Sans Fallback'",
     "editor.fontSize": 16,
     "editor.lineHeight": 1.6,
     "editor.rulers": [
-        {
-            "column": 80,
-            "color": "#282828"
-        },
-        {
-            "column": 100,
-            "color": "#282828"
-        },
-        {
-            "column": 120,
-            "color": "#282828"
-        }
+        { "column":  80, "color": "#282828" },
+        { "column": 100, "color": "#282828" },
+        { "column": 120, "color": "#282828" },
+        { "column": 160, "color": "#282828" }
     ],
     "workbench.iconTheme": "material-icon-theme",
     "material-icon-theme.saturation": 0.6,
@@ -33,37 +25,42 @@
     // Don't autocomplete on <enter> (clicking out with mouse?... pffft, NO.)
     "editor.acceptSuggestionOnEnter": "off",
 
-    // https://github.com/DavidAnson/markdownlint/blob/main/doc/md012.md
-    // "Rationale: Except in a code block, blank lines serve no purpose and do
-    // not affect the rendering of content." 
-    //
-    // Uh, yeah bruh, but I don't always *read* "rendered content."  Plaintext
-    // and whitespace FTW, sooo... don't complain until there are more than 3
-    // empty lines.
-    //
-    // https://github.com/DavidAnson/markdownlint/blob/main/doc/md028.md
-    // "Rationale: Some Markdown parsers will treat two blockquotes separated by
-    // one or more blank lines as the same blockquote, while others will treat
-    // them as separate blockquotes."
-    //
-    // I only use git providers who render this correctly.
-    //
-    // https://github.com/DavidAnson/markdownlint/blob/main/doc/md033.md
-    // "Rationale: Raw HTML is allowed in Markdown, but this rule is included
-    // for those who want their documents to only include "pure" Markdown, or
-    // for those who are rendering Markdown documents into something other than
-    // HTML."
-    //
-    // GFM allows you to organize info with collapsible sections (which I prefer
-    // when example or log output is needed), and this "folding" uses HTML tags.
     "markdownlint.config": {
+        // https://github.com/DavidAnson/markdownlint/blob/main/doc/md012.md
+        // "Rationale: Except in a code block, blank lines serve no purpose and
+        // do not affect the rendering of content."
+        //
+        // Uh, yeah bruh, but I don't always *read* "rendered content."
+        // Plaintext and whitespace FTW, sooo... don't complain until there are
+        // more than 3 empty lines.
         "MD012": { "maximum": 3 },
+
+        // https://github.com/DavidAnson/markdownlint/blob/main/doc/md028.md
+        // "Rationale: Some Markdown parsers will treat two blockquotes
+        // separated by one or more blank lines as the same blockquote, while
+        // others will treat them as separate blockquotes."
+        //
+        // I only use git providers (Github and Gitlab) who render this
+        // correctly.
         "MD028": false,
+
+        // https://github.com/DavidAnson/markdownlint/blob/main/doc/md033.md
+        // "Rationale: Raw HTML is allowed in Markdown, but this rule is
+        // included for those who want their documents to only include "pure"
+        // Markdown, or for those who are rendering Markdown documents into
+        // something other than HTML."
+        //
+        // GFM allows you to organize info with collapsible sections (which I
+        // prefer when example or log output is needed), and this "folding" uses
+        // HTML tags.
         "MD033": false
     },
 
+    // Enabled mostly so the various link validations work (fragment, reference, etc.)
+    "markdown.validate.enabled": true,
+
     // Ignore Markdown errors on the current line and X lines above/below.
-    "markdownlint.focusMode": 1,
+    "markdownlint.focusMode": 3,
 
     // Why do you auto-detect plaintext config files as Markdown?  So annoying!
     "workbench.editor.languageDetection": false,
@@ -77,16 +74,23 @@
         "assumeyes",
         "auditd",
         "authpassphrase",
+        "autofetch",
         "autohide",
         "avahi",
         "azcollection",
         "azureapp",
         "azurecr",
         "betterem",
+        "bindep",
         "bjorked",
+        "blockquote",
+        "blockquotes",
         "bruh",
         "chmod",
         "chrony",
+        "cmdline",
+        "consoleblank",
+        "Containerfile",
         "coredns",
         "Corefile",
         "coreutils",
@@ -94,6 +98,7 @@
         "creds",
         "cygwin",
         "dawg",
+        "devel",
         "devnet",
         "devs",
         "dhcpd",
@@ -105,14 +110,20 @@
         "dotfiles",
         "dotfilesdir",
         "edns",
+        "equalto",
+        "esbenp",
         "figlet",
+        "fileglob",
         "firewalld",
+        "GECOS",
         "graphicscontroller",
         "gsettings",
         "hashicorp",
+        "hexeditor",
         "HISTCONTROL",
         "histtimeformat",
         "homelab",
+        "hostgroup",
         "hostvar",
         "hostvars",
         "hushlogin",
@@ -124,20 +135,24 @@
         "ipaddr",
         "ipaddress",
         "ipath",
+        "ipynb",
         "jasonfu",
         "jfuller",
         "journalctl",
         "junos",
         "keepalived",
+        "keyfile",
         "keygen",
         "keyscan",
         "keyvault",
         "kubectl",
+        "LC_CTYPE",
         "ldap",
         "linecard",
         "lineinfile",
         "linenums",
         "LOCALBACK",
+        "localdomain",
         "localectl",
         "lookaheads",
         "maxresults",
@@ -145,11 +160,14 @@
         "meraki",
         "mgmt",
         "minikube",
+        "mkconfig",
         "mkdir",
         "mkdocs",
         "modifyvm",
         "motd",
         "mountpoint",
+        "msdos",
+        "Nautobot",
         "netcommon",
         "nmcli",
         "nodename",
@@ -160,22 +178,30 @@
         "Palo",
         "pamd",
         "panos",
+        "passlib",
         "passwordstate",
         "pffft",
+        "pipefail",
         "pissy",
+        "pkcs1-oaep",
         "podman",
+        "POSIX",
         "PREPROD",
         "privpassphrase",
         "pymdownx",
         "pytest",
         "qkview",
         "restorecon",
+        "rhgb",
         "rpms",
         "scrollback",
+        "selectattr",
         "selinux",
         "setaf",
+        "setuptools",
         "showcerts",
         "skel",
+        "skewl",
         "smartsymbols",
         "snmp",
         "SNTC",
@@ -183,14 +209,17 @@
         "sshfs",
         "sshpass",
         "sssd",
+        "strftime",
         "superfences",
         "superproject",
         "tasklist",
         "tempfile",
         "terminfo",
+        "todohighlight",
         "toplevel",
         "ungreedy",
         "urlencode",
+        "usermod",
         "userspace",
         "venv",
         "vimrc",
@@ -223,27 +252,35 @@
         "!vault scalar"
     ],
 
+    // Don't annoy me, Red Hat.  I like you guys, but subscriptions?  Naw dawg.
+    "ansible.lightspeed.enabled": false,
+    "ansible.lightspeed.suggestions.enabled": false,
+
     // Default passphrase for Ansible vault encrypted files
-    "ansibleVaultInline.keyfile": "/home/jfuller/.ansible/vault",
-    
+    "ansibleVaultInline.keyfile": "~/.ansible/vault",
+
+    // Treat all yaml files as Ansible files.
+    "files.associations": {
+        "*.yaml": "ansible",
+        "*.yml": "ansible"
+    },
+
     // Doesn't work right + annoying
     "markdown.preview.scrollEditorWithPreview": false,
-    
+
     // Python things
     "python.testing.pytestEnabled": true,
     "python.terminal.executeInFileDir": true,
-    
+
     // Don't bug me; do the thing!
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
-    
+
     // Because... terminals
     "rewrap.wrappingColumn": 80,
 
     // ...but my systems, yo!
     "remote.SSH.remotePlatform": {
-        "nuc10": "linux",
-        "drone": "linux",
         "lab1.home": "linux",
         "lab2.home": "linux",
         "lab3.home": "linux"
@@ -267,20 +304,39 @@
         "**/venv/**": true,
         "**/.venv/**": true
     },
+    // May help slow search and `rg` eating CPU on large directories
+    // https://github.com/microsoft/vscode/issues/98594
+    "search.followSymlinks": false,
 
-    // Always add a _single_ newline to the end of files.
+    // Always add a _single_ newline to the end of files and trim trailing white
+    // space.
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
 
-    // Use the correct pretty printer.
+    // Use the correct pretty printer and other language specific settings.
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[yaml]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2
     },
     "[jsonc]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2
+    },
+    "[shellscript]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2
     },
 
     // Hex editor settings (This plugin is fairly rudimentary at the moment.)
@@ -291,31 +347,18 @@
     "hexeditor.showOpenFileButton": true,
 
     // I want spell check all over the place.
-    "cSpell.enableFiletypes": [
+    "cSpell.enabledFiletypes": [
+        "!json",
         "ruby",
         "shellscript"
     ],
 
-    // A convenient place to put the command palette, now that there's more
-    // space around it (for dragging the window around, it was quite annoying
-    // without it)
-    "window.commandCenter": true,
-
     // Be sure to highlight weird characters in a file.
     "editor.unicodeHighlight.nonBasicASCII": true,
-
-    // Treat all yaml files as Ansible files.
-    "files.associations": {
-        "*.yaml": "ansible",
-        "*.yml": "ansible"
-    },
 
     // Don't keep a billion tabs open at once.
     "workbench.editor.limit.enabled": true,
     "workbench.editor.limit.value": 7,
-
-    // Enables link validation (local and otherwise) in your markdown.
-    "markdown.validate.enabled": true,
 
     // Use the new diff algorithm for better diff highlighting.
     "diffEditor.diffAlgorithm": "advanced",
@@ -337,18 +380,61 @@
         "**/*.yaml",
         "**/*.yml",
         "**/*.sh",
-        "**/*.bash"
+        "**/*.bash",
+        "**/*.json"
+    ],
+    "todohighlight.exclude": [
+        "**/node_modules/**",
+        "**/bower_components/**",
+        "**/dist/**",
+        "**/build/**",
+        "**/.vscode/**",
+        "**/.github/**",
+        "**/_output/**",
+        "**/*.min.*",
+        "**/*.map",
+        "**/.next/**",
+        "**/.venv/**"
     ],
 
-    // Settings I haven't sorted yet. //////////////////////////////////////////
-    "[css]": {
-        "editor.defaultFormatter": "vscode.css-language-features"
-    },
+    // Don't convert my ASCII text representation of an emoji into a Unicode
+    // character.  I prefer plain text.
+    "emojisense.unicodeCompletionsEnabled": false,
+    // Don't show the emoji inline in my Markdown.  The extra width throws off
+    // line-wrapping.
+    "emojisense.emojiDecoratorsEnabled": false,
+
+    // Sane terminal options for a Linux user
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.rightClickBehavior": "paste",
     "terminal.integrated.scrollback": 100000,
     "terminal.integrated.shellIntegration.history": 1000,
+
+    // Prevents some of the annoying source file lint warnings.
+    "shellcheck.customArgs": [
+        "-x"
+    ],
+
+    // Settings I haven't sorted yet. //////////////////////////////////////////
     "dev.containers.dockerPath": "podman",
+    "dev.containers.dockerComposePath": "podman-compose",
     "dev.containers.executeInWSL": true,
-    "dev.containers.executeInWSLDistro": "podman-machine-default"
+    "dev.containers.executeInWSLDistro": "podman-machine-default",
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "yaml.schemas": {
+        "file:///home/ansible/.vscode-server/extensions/continue.continue-1.2.14-linux-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ],
+        "file:///home/ansible/.vscode-server/extensions/continue.continue-1.2.16-linux-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ],
+        "file:///home/ansible/.vscode-server/extensions/continue.continue-1.2.22-linux-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ]
+    },
+    "terminal.integrated.stickyScroll.enabled": false,
+    "editor.stickyScroll.enabled": false,
+    "breadcrumbs.enabled": false,
+    "dev.containers.dockerSocketPath": "/run/user/1000/podman/podman.sock",
 }
